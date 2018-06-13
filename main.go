@@ -199,7 +199,7 @@ func wrapper(f func(w http.ResponseWriter, r *http.Request)) http.Handler {
 			w.Header().Set("Access-Control-Allow-Origin", c.corsAllowOrigin)
 			w.Header().Set("Access-Control-Allow-Methods", c.corsAllowMethods)
 			w.Header().Set("Access-Control-Allow-Headers", c.corsAllowHeaders)
-			w.Header().Set("Access-Control-Max-Age", strconv.FormatInt(c.corsMaxAge, 10))
+			w.Header().Set("Access-Control-Max-Age", strconv.FormatInt(c.corsMaxAge, 1728000))
 		}
 		if (len(c.basicAuthUser) > 0) && (len(c.basicAuthPass) > 0) && !auth(r) && !isHealthCheckPath(r) {
 			w.Header().Set("WWW-Authenticate", `Basic realm="REALM"`)
